@@ -23,3 +23,36 @@
 8 10 12
 14 16 18
 """
+
+import copy
+class Matrix:
+
+    def __init__(self, matrix):
+        self.matrix = matrix
+
+    def __add__(self, other):
+        if len(self.matrix) != len(other.matrix):
+            return None
+        res = copy.deepcopy(self.matrix)
+        for i in range(len(self.matrix)):
+            for k in range(len(self.matrix[i])):
+                res[i][k] = self.matrix[i][k] + other.matrix[i][k]
+        return Matrix(res)
+
+    def __str__(self):
+        st = ''
+        for i in range(len(self.matrix)):
+            st = st + '\t'.join(map(str, self.matrix[i])) + '\n'
+        return st
+
+
+m1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+m2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+mx1 = Matrix(m1)
+mx2 = Matrix(m2)
+rezult = mx1 + mx2
+print(mx1)
+print(mx2)
+print(rezult)
+
+
