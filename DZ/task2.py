@@ -12,7 +12,7 @@ class Zero(Exception):
         try:
             num1 = float(input('Введите первое число: '))
             num2 = float(input('Введите второе число: '))
-            print(num1 / num2)
+            print(f'{(num1 / num2):0.2f}')
         except ZeroDivisionError:
             print('На ноль делить нельзя')
 
